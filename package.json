@@ -2,6 +2,7 @@
   "engines": {
     "node":"22.15.0"
   },
+  "start": "node app.js",
   "name": "airbnb-project",
   "version": "1.0.0",
   "description": "",
