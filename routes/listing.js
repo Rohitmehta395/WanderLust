@@ -19,6 +19,37 @@ router
     wrapAsync(listingController.createListing)
   );
 
+// Search Route
+router.get(
+  "/search",
+  wrapAsync(async (req, res) => {
+    const query = req.query.q;
+    if (!query) {
+      return res.redirect("/listings");
+    }
+
+    const regex = new RegExp(escapeRegex(query), "i");
+
+    const listings = await Listing.find({
+      $or: [{ title: regex }, { location: regex }],
+    });
+
+    res.render("listings/index", { allListings: listings, query });
+  })
+);
+
+// Utility function to escape special regex chars
+function escapeRegex(text) {
+  return text.replace(/[-[\]{}()*+?.,\\^$|#\s]/g, "\\$&");
+}
+
+//Filter by category Route
+router.get("/category/:category", async (req, res) => {
+  const { category } = req.params;
+  const listings = await Listing.find({ category });
+  res.render("listings/index.ejs", { allListings: listings, query: category });
+});
+
 //New listing Route
 router.get("/new", isLoggedIn, listingController.renderNewForm);
 

@@ -22,7 +22,7 @@
   .tax-info {
     display: none;
   }
-  .tax-toggle{
+  .tax-toggle {
     border: 2px solid black;
     border-radius: 1rem;
     height: 3.25rem;
@@ -34,50 +34,83 @@
 </style>
 
 <div id="filters">
-  <div class="filter">
+  <a
+    href="/listings/category/Trending"
+    class="filter text-decoration-none text-dark <%= query === 'Trending' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-fire"></i></div>
     <p>Trending</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Room"
+    class="filter text-decoration-none text-dark <%= query === 'Room' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-bed"></i></div>
     <p>Room</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Iconic Cities"
+    class="filter text-decoration-none text-dark <%= query === 'Iconic Cities' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-mountain-city"></i></div>
     <p>Iconic Cities</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Mountains"
+    class="filter text-decoration-none text-dark <%= query === 'Mountains' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-mountain"></i></div>
     <p>Mountains</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Castles"
+    class="filter text-decoration-none text-dark <%= query === 'Castles' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-brands fa-fort-awesome"></i></div>
     <p>Castles</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Amazing Pools"
+    class="filter text-decoration-none text-dark <%= query === 'Amazing Pools' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-person-swimming"></i></div>
     <p>Amazing Pools</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Camping"
+    class="filter text-decoration-none text-dark <%= query === 'Camping' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-campground"></i></div>
     <p>Camping</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Farms"
+    class="filter text-decoration-none text-dark <%= query === 'Farms' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-cow"></i></div>
     <p>Farms</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Arctic"
+    class="filter text-decoration-none text-dark <%= query === 'Arctic' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-snowflake"></i></div>
     <p>Arctic</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Domes"
+    class="filter text-decoration-none text-dark <%= query === 'Domes' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-igloo"></i></div>
     <p>Domes</p>
-  </div>
-  <div class="filter">
+  </a>
+  <a
+    href="/listings/category/Beaches"
+    class="filter text-decoration-none text-dark <%= query === 'Beaches' ? 'fw-bold text-primary' : '' %>"
+  >
     <div><i class="fa-solid fa-umbrella-beach"></i></div>
     <p>Beaches</p>
-  </div>
+  </a>
 
   <div class="tax-toggle">
     <div class="form-check-reverse form-switch">
@@ -87,14 +120,14 @@
         role="switch"
         id="switchCheckDefault"
       />
-      <label class="form-check-label" for="switchCheckDefault"
-        >Display total after taxes</label
-      >
+      <label class="form-check-label" for="switchCheckDefault">
+        Display total after taxes
+      </label>
     </div>
   </div>
 </div>
 
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
+<!-- <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-3">
   <% for(let listing of allListings){ %>
   <a href="/listings/<%= listing._id %>" class="listing-link">
     <div class="card col listing-card">
@@ -116,6 +149,70 @@
     </div>
   </a>
   <% } %>
+</div> -->
+
+<% if (allListings.length === 0) { %>
+<div class="alert alert-warning text-center mt-4">
+  😕 No listings found for your search.
+</div>
+<% } %>
+
+<div class="container my-4">
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 g-4">
+    <% for (let listing of allListings) { %>
+    <!-- <div class="col">
+        <a href="/listings/<%= listing._id %>" class="text-decoration-none text-dark">
+          <div class="card h-100 shadow-sm">
+            <img
+              src="<%= listing.image.url %>"
+              class="card-img-top img-fluid"
+              alt="listing image"
+              style="height: 16rem; object-fit: cover"
+            />
+            <div class="card-body">
+              <h5 class="card-title mb-1"><%= listing.title %></h5>
+              <p class="card-text">
+                ₹ <%= listing.price.toLocaleString("en-IN") %> / night
+                <small class="text-muted d-block">+18% GST</small>
+              </p>
+            </div>
+          </div>
+        </a>
+      </div> -->
+
+    <div class="col">
+      <a
+        href="/listings/<%= listing._id %>"
+        class="text-decoration-none text-dark"
+      >
+        <div class="card h-100 shadow-sm border-0">
+          <img
+            src="<%= listing.image.url %>"
+            class="card-img-top img-fluid"
+            alt="listing image"
+            style="
+              height: 16rem;
+              object-fit: cover;
+              border-top-left-radius: 0.5rem;
+              border-top-right-radius: 0.5rem;
+            "
+          />
+          <div class="card-body">
+            <h5 class="fw-semibold mb-1"><%= listing.title %></h5>
+            <div class="text-muted fs-6">
+              ₹ <%= listing.price.toLocaleString("en-IN") %>
+              <span class="fw-light">/ night</span>
+            </div>
+            <i class="tax-info" style="font-size: 0.8rem"
+              >&nbsp; &nbsp; +18% GST</i
+            >
+          </div>
+        </div>
+      </a>
+    </div>
+
+    <% } %>
+  </div>
 </div>
 
 <script>

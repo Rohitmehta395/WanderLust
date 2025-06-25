@@ -63,7 +63,7 @@ body {
 }
 
 .card-img-top {
-  border-radius: 1rem !important;
+  /* border-radius: 1rem !important; */
   width: 100% !important;
   object-fit: cover !important;
 }
@@ -79,6 +79,13 @@ body {
 .listing-link {
   text-decoration: none;
 }
+
+.card:hover {
+  transform: translateY(-4px);
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Card Effect */
 
