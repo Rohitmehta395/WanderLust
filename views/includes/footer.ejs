@@ -1,14 +1,162 @@
-<footer>
-    <div class="f-info">
-        <div class="f-info-socials">
-            <i class="fa-brands fa-facebook"></i>
-            <i class="fa-brands fa-x-twitter"></i>
-            <i class="fa-brands fa-instagram"></i>
+<footer class="footer bg-dark text-white mt-5">
+    <div class="container py-5">
+        <div class="row">
+            <!-- Brand Section -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <h5 class="fw-bold mb-3">
+                    <i class="fas fa-compass me-2"></i>WanderLust
+                </h5>
+                <p class="text-light opacity-75 mb-3">
+                    Discover amazing places and create unforgettable memories. 
+                    Your next adventure is just a click away.
+                </p>
+                <div class="d-flex gap-3">
+                    <a href="#" class="text-white opacity-75 hover-opacity-100">
+                        <i class="fab fa-facebook fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white opacity-75 hover-opacity-100">
+                        <i class="fab fa-twitter fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white opacity-75 hover-opacity-100">
+                        <i class="fab fa-instagram fa-lg"></i>
+                    </a>
+                    <a href="#" class="text-white opacity-75 hover-opacity-100">
+                        <i class="fab fa-youtube fa-lg"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Quick Links -->
+            <div class="col-lg-2 col-md-6 col-6 mb-4">
+                <h6 class="fw-bold mb-3">Explore</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="/listings" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            All Listings
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/categories" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Categories
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/destinations" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Destinations
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/experiences" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Experiences
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Support -->
+            <div class="col-lg-2 col-md-6 col-6 mb-4">
+                <h6 class="fw-bold mb-3">Support</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="/help" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Help Center
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/safety" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Safety
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/cancellation" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Cancellation
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/contact" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Contact Us
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Legal -->
+            <div class="col-lg-2 col-md-6 col-6 mb-4">
+                <h6 class="fw-bold mb-3">Legal</h6>
+                <ul class="list-unstyled">
+                    <li class="mb-2">
+                        <a href="/privacy" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Privacy Policy
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/terms" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Terms of Service
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/cookies" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Cookie Policy
+                        </a>
+                    </li>
+                    <li class="mb-2">
+                        <a href="/sitemap" class="text-light opacity-75 text-decoration-none hover-opacity-100">
+                            Sitemap
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Newsletter -->
+            <div class="col-lg-2 col-md-6 col-12 mb-4">
+                <h6 class="fw-bold mb-3">Newsletter</h6>
+                <p class="text-light opacity-75 small mb-3">
+                    Get travel tips and exclusive offers!
+                </p>
+                <form class="newsletter-form">
+                    <div class="input-group mb-2">
+                        <input type="email" 
+                               class="form-control form-control-sm" 
+                               placeholder="Your email"
+                               required>
+                        <button class="btn btn-primary btn-sm" type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </div>
+                    <small class="text-light opacity-50">
+                        We respect your privacy
+                    </small>
+                </form>
+            </div>
         </div>
-        <div>&copy; WanderLust Private Limited</div>
-        <div class="f-info-links">
-            <a href="/privacy">Privacy</a>
-            <a href="/terms">Terms</a>
+        
+        <!-- Bottom Bar -->
+        <hr class="my-4 opacity-25">
+        <div class="row align-items-center">
+            <div class="col-md-6 text-center text-md-start mb-2 mb-md-0">
+                <small class="opacity-75">
+                    &copy; <%= new Date().getFullYear() %> WanderLust. All rights reserved.
+                </small>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <small class="opacity-75">
+                    Made with <i class="fas fa-heart text-danger"></i> by 
+                    <a href="https://github.com/Rohitmehta395" 
+                       class="text-white text-decoration-none">
+                        Rohit Mehta
+                    </a>
+                </small>
+            </div>
         </div>
     </div>
 </footer>
+
+<style>
+.hover-opacity-100:hover {
+    opacity: 1 !important;
+}
+
+.newsletter-form input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+}
+</style>

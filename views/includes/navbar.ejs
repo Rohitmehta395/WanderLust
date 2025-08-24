@@ -1,116 +1,67 @@
-<style>
-  .search-btn {
-    background-color: #fe424d;
-    color: #ffffff;
-    border-radius: 25px;
-    padding: 0 1rem 0 1rem;
-  }
-
-  .search-btn:hover {
-    background-color: #fe424d;
-    color: #ffffff;
-  }
-  .search-btn i {
-    display: inline;
-    margin-right: 0.5rem;
-  }
-  .search-input {
-    border-radius: 25px;
-    padding: 0.5rem 3rem 0.5rem 3rem;
-  }
-
-  /* Add Location Button style */
-  .explore-button {
-    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-    padding: 5px 10px;
-    font-size: 16px;
-    background: transparent;
-    border: 2px solid #fe424d;
-    border-radius: 12px;
-    color: #fe424d;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.4s ease;
-    text-decoration: none;
-    font-weight: bold;
-    overflow: hidden;
-  }
-
-  .explore-button::before {
-    content: "";
-    position: absolute;
-    background-color: #fe424d;
-    height: 100%;
-    width: 0%;
-    top: 0;
-    left: 0;
-    z-index: -1;
-    transition: 0.4s ease;
-  }
-
-  .explore-button:hover::before {
-    width: 100%;
-  }
-
-  .explore-button:hover {
-    color: white;
-  }
-</style>
-
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top shadow">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"
-      ><i class="fa-regular fa-compass"></i
-    ></a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarNavAltMarkup"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <!-- <a class="nav-link" href="/">Home</a> -->
-        <a class="nav-link" href="/listings">Explore</a>
+      <!-- Brand -->
+      <a class="navbar-brand fw-bold" href="/listings">
+          <i class="fas fa-compass me-2"></i>WanderLust
+      </a>
+      
+      <!-- Mobile toggle button -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+          <!-- Left side navigation -->
+          <ul class="navbar-nav me-auto">
+              <li class="nav-item">
+                  <a class="nav-link" href="/listings">
+                      <i class="fas fa-home me-1"></i>All Listings
+                  </a>
+              </li>
+              <% if (currUser) { %>
+              <li class="nav-item">
+                  <a class="nav-link" href="/listings/new">
+                      <i class="fas fa-plus me-1"></i>Add New
+                  </a>
+              </li>
+              <% } %>
+          </ul>
+          
+          <!-- Right side navigation -->
+          <ul class="navbar-nav">
+              <% if (!currUser) { %>
+              <li class="nav-item">
+                  <a class="nav-link" href="/signup">
+                      <i class="fas fa-user-plus me-1"></i>
+                      <span class="d-lg-inline d-none">Sign Up</span>
+                      <span class="d-lg-none">Sign Up</span>
+                  </a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link" href="/login">
+                      <i class="fas fa-sign-in-alt me-1"></i>
+                      <span class="d-lg-inline d-none">Login</span>
+                      <span class="d-lg-none">Login</span>
+                  </a>
+              </li>
+              <% } else { %>
+              <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                      <i class="fas fa-user me-1"></i><%= currUser.username %>
+                  </a>
+                  <ul class="dropdown-menu">
+                      <li><a class="dropdown-item" href="/profile">Profile</a></li>
+                      <li><hr class="dropdown-divider"></li>
+                      <li>
+                          <form action="/logout" method="POST" class="d-inline">
+                              <button class="dropdown-item" type="submit">Logout</button>
+                          </form>
+                      </li>
+                  </ul>
+              </li>
+              <% } %>
+          </ul>
       </div>
-      <div class="navbar-nav ms-auto">
-        <!-- <form class="d-flex" role="search">
-          <input
-            class="form-control me-2 search-input"
-            type="search"
-            placeholder="Search destinations"
-          />
-          <button class="btn search-btn" type="submit"><i class="fa-solid fa-magnifying-glass"></i>Search</button>
-        </form> -->
-        <form
-          class="d-flex"
-          role="search"
-          action="/listings/search"
-          method="GET"
-        >
-          <input
-            class="form-control me-2 search-input"
-            type="search"
-            name="q"
-            placeholder="Search destinations"
-            value="<%= typeof query !== 'undefined' ? query : '' %>"
-          />
-          <button class="btn search-btn" type="submit">
-            <i class="fa-solid fa-magnifying-glass"></i>Search
-          </button>
-        </form>
-      </div>
-      <div class="navbar-nav ms-auto">
-        <a href="/listings/new" class="explore-button">Add Location</a>
-        <% if(!currUser) { %>
-        <a class="nav-link" href="/signup"><b>Signup</b></a>
-        <a class="nav-link" href="/login"><b>Login</b></a>
-        <% } %> <% if(currUser) { %>
-        <a class="nav-link" href="/logout"><b>logout</b></a>
-        <% } %>
-      </div>
-    </div>
   </div>
 </nav>

@@ -93,7 +93,7 @@ WanderLust/
    npm start
    ```
 
-6. Open your browser at: `http://localhost:3000`
+6. Open your browser at: `http://localhost:8080`
 
 ---
 
